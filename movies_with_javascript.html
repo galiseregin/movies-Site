@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Disney Characters</title>
+    <style>
+        table {
+            width: 80%;
+            margin: 20px auto;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #61c5d9;
+        }
+        #logout-btn {
+            margin: 10px;
+            padding: 10px;
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #logout-btn:hover {
+            background-color: #ff4500;
+        }
+    </style>
+	 <script>
+        function changePicture() {
+ 
+            //let firstPictureCell = document.querySelector(" tbody tr:nth-child(2) td:nth-child(4) txt");
+			//firstPictureCell.innerHTML.
+            //firstPictureCell.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRB7qgz6fUpz5GelChiv8RI1ksqz044d3zpyA&s";
+			//firstPictureCell = "hey";
+			//document.getElementById("mytable" ).rows[1].cells[4].innerHTML='new';
+			document.getElementById("mytable" ).rows[1].cells[4].innerHTML='<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRB7qgz6fUpz5GelChiv8RI1ksqz044d3zpyA&s.jpeg">';	
+        }
+    </script>
+</head>
+<body>
+<button onclick="changePicture()">
+        Click to modify
+    </button>
+
+<h2 style="text-align: center;">Disney Characters</h2>
+<div style="text-align: center;">
+    <form action="/logout" method="POST" style="display: inline;">
+        <button id="logout-btn" type="submit">Logout</button>
+    </form>
+	<!--
+    <form action="/comodo" method="POST" style="display: inline;">
+        <button id="comodo-btn" type="submit">comodo</button>
+    </form>	
+	-->
+	
+</div>
+
+<table id= "mytable">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Year of Movie</th>
+            <th>Weapon</th>
+            <th>Villain</th>
+            <th>Picture</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{characters}}
+    </tbody>
+</table>
+
+<h2 style="text-align: center;">ADD Disney Characters</h2>
+<div style="text-align: center;">
+    <form action="/addcharacters" method="POST">
+        <input type="text" name="name" placeholder="Character Name" required />
+        <input type="text" name="year" placeholder="Year of Movie" required />
+        <input type="text" name="weapon" placeholder="Weapon" required />
+        <input type="text" name="villain" placeholder="Villain" required />
+        <input type="text" name="picture" placeholder="Image URL" required />
+        <button type="submit">Add Character</button>
+    </form>
+</div>
+
+</body>
+</html>
